@@ -101,10 +101,21 @@ app.get('/activity', async (c) => {
 });
 
 // Internal endpoint — for service binding calls from project Workers
+// Accepts project_id (int) or project_slug (string) — resolves slug if needed
 app.post('/internal/report', async (c) => {
-  const body = await c.req.json();
+  const body = await c.req.json<{
+    project_id?: number; project_slug?: string; module_id?: number;
+    event_type?: string; description?: string; triggered_by?: string;
+  }>();
+
+  let projectId = body.project_id;
+  if (!projectId && body.project_slug) {
+    const proj = await getProjectBySlug(c.env.CCC_ADMIN_DB, body.project_slug);
+    projectId = (proj as { id: number } | null)?.id;
+  }
+
   await logActivity(c.env.CCC_ADMIN_DB, {
-    project_id: body.project_id,
+    project_id: projectId,
     module_id: body.module_id,
     event_type: body.event_type ?? 'AgentAction',
     description: body.description,
