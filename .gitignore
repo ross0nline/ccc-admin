@@ -1,0 +1,15 @@
+# MCP config contains API tokens — never commit
+.mcp.json
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Node
+node_modules/
+dist/
+.wrangler/
+
+# Environment variables
+.env
+.env.local
+.dev.vars

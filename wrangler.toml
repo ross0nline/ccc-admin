@@ -1,0 +1,13 @@
+name = "ccc-admin"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+AI_GATEWAY_URL = "https://gateway.ai.cloudflare.com/v1/384fc5d6758abeb5f11df18f963eac5d/acis-gateway/anthropic"
+
+[[d1_databases]]
+binding = "CCC_ADMIN_DB"
+database_name = "ccc-admin-db"
+database_id = "61af6184-6fec-4946-b9f7-dbd2bfdfcefb"
