@@ -38,6 +38,19 @@ database_id = "61af6184-6fec-4946-b9f7-dbd2bfdfcefb"
 
 `Uninitiated` → `Pending` → `Implemented` → `Updated` → `Deprecated`
 
+## Implementation Tracking
+
+| Component | Status | Notes |
+|---|---|---|
+| `wrangler.toml` | [Implemented] | D1 binding configured |
+| `db/schema.sql` | [Implemented] | Migrated to live D1, seeded |
+| `package.json` | [Implemented] | Hono, workers-types, TypeScript |
+| `src/index.ts` | [Implemented] | Hono router, all REST routes |
+| `src/types.ts` | [Implemented] | TypeScript interfaces |
+| `src/db/queries.ts` | [Implemented] | SQL query helpers |
+| GitHub Actions CI/CD | [Uninitiated] | |
+| Cloudflare Pages frontend | [Uninitiated] | |
+
 ## Working Conventions
 
 - Do not begin implementation unless explicitly instructed.
