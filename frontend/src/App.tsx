@@ -3,6 +3,7 @@ import type { Project, ActivityEvent } from './types';
 import { fetchProjects, fetchActivity } from './api/client';
 import { ProjectCard } from './components/ProjectCard';
 import { ActivityFeed } from './components/ActivityFeed';
+import { AcisStatusCard } from './components/AcisStatusCard';
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -66,6 +67,7 @@ function App() {
           </div>
         ) : activeTab === 'projects' ? (
           <div className="space-y-3">
+            <AcisStatusCard />
             {projects.map(project => (
               <ProjectCard key={project.id} project={project} />
             ))}
